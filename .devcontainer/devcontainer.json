@@ -14,12 +14,11 @@
 			"NODE_VERSION": "16"
 		}
 	},
-	"initializeCommand": "mkdir -p ${localWorkspaceFolder}/.cache",
+	"initializeCommand": "mkdir -p ${localWorkspaceFolder}/.cache ${localWorkspaceFolder}/.m2",
 	"runArgs": [
 		"--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined",
 		"--mount", "type=bind,source=${localWorkspaceFolder}/.cache,target=/home/vscode/.cache",
-		"--mount", "type=bind,source=${env:HOME}/.ssh,target=/home/vscode/.ssh",
-		"--mount", "type=bind,source=${env:HOME}/.m2,target=/home/vscode/.m2"
+		"--mount", "type=bind,source=${localWorkspaceFolder}/.m2,target=/home/vscode/.m2"
 	],
 
 	// Set *default* container specific settings.json values on container create.
